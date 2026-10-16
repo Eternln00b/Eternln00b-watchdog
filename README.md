@@ -1,4 +1,4 @@
-This project implements the watchdog responsible for handling HOME button events and power switch state changes on Nintendo Classic platforms.
+This is the source code of my watchdog for the the Nintendo Classic platform. 
 
 To build it : 
 
