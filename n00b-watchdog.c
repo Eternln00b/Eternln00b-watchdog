@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
         if (FD_ISSET(fd_power, &fds)) {
             while (read(fd_power, &ev, sizeof(ev)) == sizeof(ev)) {
                 if (ev.type == EV_KEY && ev.code == CODE_POWER && ev.value == 1) {
-                    kill(target_pid, SIGKILL);
+                    kill(target_pid, SIGTERM);
                     sync();
                     system("poweroff");
                 }
@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
         if (FD_ISSET(fd_reset, &fds)) {
             while (read(fd_reset, &ev, sizeof(ev)) == sizeof(ev)) {
                 if (ev.type == EV_KEY && ev.code == CODE_RESET && ev.value == 1) {
-                    kill(target_pid, SIGKILL);
+                    kill(target_pid, SIGTERM);
                     break;
                 }
             }
